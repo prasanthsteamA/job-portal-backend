@@ -1,0 +1,39 @@
+service: job-service
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'ap-south-1'}
+  environment:
+    NODE_ENV: ${opt:stage}
+    DB_HOST: ${ssm:/job-service/${opt:stage}/DB_HOST}
+    DB_PORT: ${ssm:/job-service/${opt:stage}/DB_PORT}
+    DB_USER: ${ssm:/job-service/${opt:stage}/DB_USER}
+    DB_PASS: ${ssm:/job-service/${opt:stage}/DB_PASS}
+    DB_NAME: ${ssm:/job-service/${opt:stage}/DB_NAME}
+    JWT_SECRET: ${ssm:/job-service/${opt:stage}/JWT_SECRET}
+
+functions:
+  job-service:
+    handler: dist/index.handler
+    timeout: 90
+    url:
+      cors:
+        allowedOrigins:
+          - "*"
+      auth: NONE
+    events:
+      - http:
+          path: /
+          method: any
+      - http:
+          path: /{proxy+}
+          method: any
+
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript-express
+  - serverless-iam-roles-per-function
+  - serverless-prune-versions

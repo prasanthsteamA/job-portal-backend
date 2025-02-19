@@ -1,0 +1,51 @@
+{
+  "name": "job-portal",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "watch-tsc": "tsc -w",
+    "watch-deploy": "nodemon dist/index.js",
+    "dev": "nodemon index.ts",
+    "staging": "nodemon index.ts",
+    "build": "npm run tsc",
+    "package": "serverless package",
+    "format:test": "prettier --check \"src/**/*.ts\" \"src/**/*.ts\"",
+    "format:write": "prettier --write \"**/*.{md,json}\" \"(src|tst)/**/*.{js,js,ts,ts}\" \"!.tmp/**\"",
+    "format": "npm run format:write && npm run format:test",
+    "deploy:dev": "npm run build && serverless deploy --stage dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.9",
+    "pg": "^8.13.3",
+    "prettier": "^3.5.1",
+    "serverless-http": "^3.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.7",
+    "serverless": "^4.6.3",
+    "serverless-esbuild": "^1.54.6",
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "serverless-offline": "^14.4.0",
+    "serverless-plugin-typescript-express": "^1.0.8",
+    "serverless-prune-versions": "^1.0.4",
+    "typescript": "^5.7.3"
+  }
+}
