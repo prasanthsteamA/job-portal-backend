@@ -98,5 +98,13 @@ DELETE	/api/jobs/:id	Delete a job	✅
 ✔ Database connection pooling
 ✔ Swagger for API documentation
 ```
-
+## Output
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job1.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job2.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job3.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job4.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job5.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job6.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job7.png)
+![Image description](https://github.com/prasanthsteamA/job-portal-ui/blob/main/output/job8.png)
 
