@@ -8,10 +8,18 @@ import jobRoutes from './routes/job.routes';
 import authRoutes from './routes/auth.routes';
 import { errorHandler } from './middleware/errorHandler';
 import { authenticateToken } from './middleware/authMiddleware';
+import { rateLimit } from "express-rate-limit"
+
+const app = express();
+const limiter = rateLimit({
+   windowMs : 60*1000,
+   max : 10,
+   message: "Too Many request"
+})
+app.use(limiter)
 
 dotenv.config();
 
-const app = express();
 app.use(cors());
 app.use(express.json());
 
